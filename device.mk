@@ -79,5 +79,5 @@ PRODUCT_PACKAGES += \
 # Overrides
 DEVICE_PACKAGE_OVERLAYS := \
     device/moto/stingray/overlay device/moto/wingray/overlay
+BOOTANIMATION_RESOLUTION := 1280x720_small
 $(call inherit-product-if-exists, vendor/eos/common.mk)
-$(call inherit-product-if-exists, vendor/eos/tablets/common.mk)
