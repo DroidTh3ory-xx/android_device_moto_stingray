@@ -60,6 +60,9 @@
     <!-- The Google Network Location Services location provider -->
     <item>com.google.android.location</item>
     </string-array>
+     <!--  Bring multiuser in for xooms-->
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">8</integer>
 
     <bool name="config_hideMobileSignalOnWifi">true</bool>
 </resources>
