@@ -48,6 +48,3 @@ ro.gsm.2nd_data_retry_config=max_retries=infinite,default_randomization=2000,0,0
 ro.ril.panic.reporter=apr
 
 ro.ril.fccid=IHDP56LU2
-
-ro.telephony.ril.v3=skipnullaid,datacall
-
