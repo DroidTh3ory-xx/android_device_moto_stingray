@@ -53,14 +53,16 @@
         <item>"mobile_cbs,12,0,2,60000,false"</item>
         <item>"wifi_p2p,13,1,0,-1,true"</item>
     </string-array>    
-            <!-- Enable Google Network Location Services -->
+
+    <!-- Enable Google Network Location Services -->
     <string-array name="config_locationProviderPackageNames" translatable="false">
     <!-- The standard AOSP fused location provider -->
     <item>com.android.location.fused</item>
     <!-- The Google Network Location Services location provider -->
     <item>com.google.android.location</item>
     </string-array>
-     <!--  Bring multiuser in for xooms-->
+
+    <!--  Bring multiuser in for xooms-->
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">8</integer>
 </resources>
