@@ -19,8 +19,9 @@ persist.ril.modem.ttydevice=/dev/usb/tty2-1:1.4
 persist.ril.tcmd.ttydevice=/dev/usb/tty2-1:1.3
 persist.ril.diag.ttydevice=/dev/usb/tty2-1:1.0
 ril.wrigley.modem.tty=/dev/usb/tty1-1:1.10
+telephony.lteOnCdmaDevice=1
 #Leave default mode to 4 (CDMA) but need it to be Global (7) for LTE/CDMA
-ro.telephony.default_network=4
+ro.telephony.default_network=7
 
 # Disable ims by setting imsapp.mode to all_dependency_met
 #imsapp.mode=all_dependency_met
@@ -47,3 +48,6 @@ ro.gsm.2nd_data_retry_config=max_retries=infinite,default_randomization=2000,0,0
 ro.ril.panic.reporter=apr
 
 ro.ril.fccid=IHDP56LU2
+
+ro.telephony.ril.v3=skipnullaid,datacall
+

@@ -18,35 +18,35 @@ $(call inherit-product, device/moto/wingray/device_base.mk)
 
 PRODUCT_COPY_FILES += \
     device/moto/stingray/oem-iptables-init.sh:system/bin/oem-iptables-init.sh \
-    device/moto/stingray/ril/tty2ttyd:system/bin/tty2ttyd \
     device/moto/stingray/ril/base64:system/bin/base64 \
-    device/moto/stingray/ril/libb64.so:system/lib/libb64.so \
     device/moto/stingray/ril/extract-embedded-files:system/bin/extract-embedded-files \
-    device/moto/stingray/ril/vril-dump:system/bin/vril-dump \
     device/moto/stingray/ril/logcatd:system/bin/logcatd \
     device/moto/stingray/ril/logcatd-blan:system/bin/logcatd-blan \
+    device/moto/stingray/ril/tty2ttyd:system/bin/tty2ttyd \
+    device/moto/stingray/ril/vril-dump:system/bin/vril-dump \
+    device/moto/stingray/ril/libb64.so:system/lib/libb64.so \
     device/sample/etc/apns-conf_verizon.xml:system/etc/apns-conf.xml
 
 ifneq ($(AP_RIL_BLDSRC),1)
 PRODUCT_COPY_FILES += \
-    device/moto/stingray/ril/libmoto_cdma_ril.so:system/lib/libmoto_cdma_ril.so \
-    device/moto/stingray/ril/libmoto_rds_ril.so:system/lib/libmoto_rds_ril.so \
-    device/moto/stingray/ril/libmoto_qmi_ril.so:system/lib/libmoto_qmi_ril.so \
-    device/moto/stingray/ril/libmoto_nwif_ril.so:system/lib/libmoto_nwif_ril.so \
-    device/moto/stingray/ril/libmoto_intfutil_ril.so:system/lib/libmoto_intfutil_ril.so \
-    device/moto/stingray/ril/libmoto_db_ril.so:system/lib/libmoto_db_ril.so \
-    device/moto/stingray/ril/libmoto_mm_ril.so:system/lib/libmoto_mm_ril.so \
-    device/moto/stingray/ril/libmoto_mdmctrl.so:system/lib/libmoto_mdmctrl.so \
     device/moto/stingray/ril/libbabysit.so:system/lib/libbabysit.so \
+    device/moto/stingray/ril/libmoto_cdma_ril.so:system/lib/libmoto_cdma_ril.so \
+    device/moto/stingray/ril/libmoto_db_ril.so:system/lib/libmoto_db_ril.so \
+    device/moto/stingray/ril/libmoto_intfutil_ril.so:system/lib/libmoto_intfutil_ril.so \
+    device/moto/stingray/ril/libmoto_mdmctrl.so:system/lib/libmoto_mdmctrl.so \
+    device/moto/stingray/ril/libmoto_mm_ril.so:system/lib/libmoto_mm_ril.so \
+    device/moto/stingray/ril/libmoto_nwif_ril.so:system/lib/libmoto_nwif_ril.so \
+    device/moto/stingray/ril/libmoto_qmi_ril.so:system/lib/libmoto_qmi_ril.so \
+    device/moto/stingray/ril/libmoto_rds_ril.so:system/lib/libmoto_rds_ril.so \
     device/moto/stingray/ril/mm-wrigley-qc-dump.sh:system/bin/mm-wrigley-qc-dump.sh \
-    device/moto/stingray/ril/wrigley-dump.sh:system/bin/wrigley-dump.sh \
     device/moto/stingray/ril/wrigley-diag.sh:system/bin/wrigley-diag.sh \
-    device/moto/stingray/ril/wrigley-iptables.sh:system/bin/wrigley-iptables.sh \
-    device/moto/stingray/ril/wrigley-fetch-mpr.sh:system/bin/wrigley-fetch-mpr.sh
+    device/moto/stingray/ril/wrigley-dump.sh:system/bin/wrigley-dump.sh \
+    device/moto/stingray/ril/wrigley-fetch-mpr.sh:system/bin/wrigley-fetch-mpr.sh \
+        device/moto/stingray/ril/wrigley-iptables.sh:system/bin/wrigley-iptables.sh
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_COPY_FILES += \
-    device/moto/stingray/ril/qbp-dump.sh:system/bin/qbp-dump.sh \
     device/moto/stingray/ril/qbp-apr-dump.sh:system/bin/qbp-apr-dump.sh \
+    device/moto/stingray/ril/qbp-dump.sh:system/bin/qbp-dump.sh \
     device/moto/stingray/ril/qbpfs:system/bin/qbpfs
 endif
 endif
@@ -75,9 +75,11 @@ PRODUCT_PACKAGES += \
     wrigley-iptables \
     wrigley-fetch-mpr \
     rild \
+    Stk
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.killrom.version=KILLRStingray
 
 # Overrides
 DEVICE_PACKAGE_OVERLAYS := \
     device/moto/stingray/overlay device/moto/wingray/overlay
-BOOTANIMATION_RESOLUTION := 1280x720_small
-$(call inherit-product-if-exists, vendor/eos/common.mk)
