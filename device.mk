@@ -80,8 +80,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.killrom.version=KILLRStingray \
     ril.subscription.types=NV,RUIM \
-    ro.cdma.subscribe_on_ruim_ready=true \
-    ro.telephony.ril.v3=skipnullaid
+    ro.telephony.ril.v3=writeaidonly
 
 # Overrides
 DEVICE_PACKAGE_OVERLAYS := \
